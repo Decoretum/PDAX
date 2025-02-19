@@ -14,7 +14,13 @@ class CreateAccount:
         newAccount = Account(accountId, customer_id, accountNumber, 0)
         newCustomer = Customer(customer_id, name, email, phone_number)
 
-        if newCustomer in self.customerRepository.collection:
+        existing = False
+        for customer in self.customerRepository.collection:
+            if customer.customer_id == customer_id:
+                existing = True
+                break
+
+        if existing == True: 
             pass
         else:
             self.customerRepository.save(newCustomer)
