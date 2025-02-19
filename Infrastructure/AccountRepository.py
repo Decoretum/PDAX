@@ -17,5 +17,5 @@ class AccountRepository:
         for acc in self.collection:
             if acc.customer_id == customer_id:
                 accounts.append(acc)
-                
+
         return accounts
